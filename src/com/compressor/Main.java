@@ -36,4 +36,4 @@ public class Main {
 
 /*Nesse caso o arquivo compactado ficou maior que o original, isso acontece porque o cabeçalho com a tabela de frequências
  tem um custo fixo alto para textos pequenos. O cenário muda para textos de LIVROS, LOGS DE SISTEMA, valendo a pena a
- compactação.*/ 
+ compactação.*/
