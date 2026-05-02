@@ -11,11 +11,20 @@ public class Main {
         //Criar um arquivo de testes
 
         Path input = Path.of("input.txt");
-        Path output = Path.of("output.huff");
+        Path compressed   = Path.of("output.huff");
+        Path decompressed = Path.of("output.txt");
 
         java.nio.file.Files.writeString(input, "aabbbcccc");
 
-        Compressor.compress(input, output);
+        Compressor.compress(input, compressed);
+        Decompressor.decompress(compressed, decompressed);
+
+        String original     = java.nio.file.Files.readString(input);
+        String reconstructed = java.nio.file.Files.readString(decompressed);
+
+        System.out.println("Original:      " + original);
+        System.out.println("Reconstruído:  " + reconstructed);
+        System.out.println("Idênticos: " + original.equals(reconstructed));
 
 
     }
