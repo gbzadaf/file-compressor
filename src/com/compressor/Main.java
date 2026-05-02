@@ -13,15 +13,12 @@ public class Main {
         Path input = Path.of("input.txt");
         java.nio.file.Files.writeString(input, "aabbbcccc");
 
-        //Conta as frequencias
-
         Map<Byte, Integer> frequency = FrequencyCounter.counter(input);
+        HuffmanNode root = HuffmanTree.build(frequency);
 
-        //Imprime o resultado
-
-        frequency.entrySet().stream()
-                .sorted(Map.Entry.<Byte,Integer>comparingByValue().reversed())
-                .forEach(e -> System.out.println("'" + (char)(byte)e.getKey() + "' --> " + e.getValue() + "x"));
-
+        System.out.println("Raiz da árvore — frequência total: " + root.frequency);
+        System.out.println("Filho esquerdo: " + root.left.frequency);
+        System.out.println("Filho direito: " + root.right.frequency);
+        
     }
 }
