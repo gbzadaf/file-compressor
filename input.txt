@@ -1,1 +1,1 @@
-aabbbcccc
+Java é uma linguagem de programação orientada a objetos. Foi desenvolvida por James Gosling na Sun Microsystems. É amplamente usada no desenvolvimento de aplicações web, mobile, desktop e sistemas embarcados. O principal lema do Java é: escreva uma vez, rode em qualquer lugar.
