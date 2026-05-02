@@ -15,10 +15,22 @@ public class Main {
 
         Map<Byte, Integer> frequency = FrequencyCounter.counter(input);
         HuffmanNode root = HuffmanTree.build(frequency);
+        Map<Byte, String> codes = CodeGenerator.generate(root);
 
-        System.out.println("Raiz da árvore — frequência total: " + root.frequency);
-        System.out.println("Filho esquerdo: " + root.left.frequency);
-        System.out.println("Filho direito: " + root.right.frequency);
-        
+        System.out.println("Códigos gerados:");
+        codes.forEach((b, code) ->
+                System.out.println("'" + (char)(byte)b + "' → " + code)
+        );
+
+        // Mostra a compactação da string
+        String original = "aabbbcccc";
+        System.out.println("\nOriginal:   " + original.length() * 8 + " bits");
+
+        int compressed = 0;
+        for (char c : original.toCharArray()) {
+            compressed += codes.get((byte) c).length();
+        }
+        System.out.println("Compactado: " + compressed + " bits");
+
     }
 }
